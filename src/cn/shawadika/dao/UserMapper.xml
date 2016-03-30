@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.shawadika.dao.UserMapper">
+	<insert id="addUser" parameterType="cn.shawadika.entity.User">
+		insert into class_user
+		values(
+		#{id},
+		#{sex},
+		#{name},
+		#{studentNum},
+		#{password},
+		#{type},
+		#{loginTimes},
+		#{belongClass},
+		#{dept},
+		#{specialty},
+		#{belongSchool},
+		#{lastTimeLogin}
+		);
+	</insert>
+
+	<select id="login" parameterType="cn.shawadika.entity.User"
+		resultType="cn.shawadika.entity.User">
+		select
+		*
+		from
+		class_user
+		where
+		studentNum=#{studentNum} and
+		password=#{password} and
+		belongClass=#{belongClass} and
+		dept=#{dept} and
+		specialty=#{specialty} and
+		belongSchool=#{belongSchool}
+	</select>
+</mapper>
