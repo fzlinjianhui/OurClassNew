@@ -24,6 +24,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet">
+<!-- Nav CSS -->
+<link href="css/custom.css" rel="stylesheet">
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!----webfonts--->
@@ -56,13 +58,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div style="height: 500px;">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						在左边编辑您的新闻内容，右边是预览窗口 &nbsp;&nbsp;&nbsp;&nbsp;
-						<button class="btn btn-info btn-sm" id="open-preview"
-							onclick="preview();">预览</button>
+						在上面编辑您的新闻内容，下面是预览窗口 &nbsp;&nbsp;&nbsp;&nbsp;
+						
 					</div>
 					<div class="panel-body">
 						<div class="col-xs-12">
-							<div class="col-xs-6" style="border:3px solid #D6F2C6 ">
+							<div class="col-xs-12" style="border:3px solid #D6F2C6 ">
 								<div class="">
 									<div class="input-group">
 										<input id="news-title" type="text" class="form-control" placeholder="新闻标题">
@@ -76,31 +77,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<!-- ----- -->
 								</div>
 								<div>
-									<input class="form-control" placeholder="作者署名">
+									<input id="author" class="form-control" placeholder="作者署名">
 								</div>
 									<div style="margin-top: 15px;text-align: right">
-										<select>
-											<option>事实新闻1</option>
+										<select name="new-type">
+											<option value="0">一般新闻</option>
 											<option>事实新闻2</option>
 											<option>事实新闻3</option>
 										</select>
 									</div>
 							</div>
-							<div class="col-xs-6"
+							<div class="col-xs-12">
+								<button class="btn btn-info btn-sm" id="open-preview"
+							onclick="preview();">预览</button>
+							</div>
+							<div class="col-xs-12"
 								style="border:3px solid #D6F2C6;height: 400px; overflow: auto;">
 								<!-- 这里显示预览 -->
 								<div id="preview-title"></div>
 								<div id="preview_div"  style=""></div>
 							</div>
 							<div class="col-xs-12" style="text-align: right;">
-								<button class="btn btn-info" style="background-color: #27C96F">提交</button>
+								<button class="btn btn-info" style="background-color: #27C96F" onclick="addNews();">提交</button>
 								<button class="btn btn-info">保存草稿</button>
 							</div>
 						</div>
 					</div>
-					<div class="panel-footer">Panel-footer</div>
 				</div>
-
 			</div>
 
 			<div class="graphs">
@@ -115,12 +118,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- /#page-wrapper -->
 	</div>
 	<!-- /#wrapper -->
-	<!-- Nav CSS -->
-	<link href="css/custom.css" rel="stylesheet">
+
 	<!-- Metis Menu Plugin JavaScript -->
 	<script src="js/metisMenu.min.js"></script>
 	<script src="js/custom.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+	});
+	function addNews(){
+		var content = editor.html();//获取editor中的html
+		var title=$("#news-title").val();
+		var author=$("#author").val();
+		var type=$("#new-type").val();
+		var news={
+			"type":type,
+			"content":content,
+			"ineffcet":1,
+			"title":title,
+			"author":author
+		};
+		$.ajax({
+			url:"../addNew.do",
+			type:"get",
+			data:news,
+			dataType:"text",
+			success:function(data){
+				alert(data);
+			}
+		});
+	};
+</script>
 </body>
 </html>

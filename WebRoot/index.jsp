@@ -271,50 +271,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</table>
 	</div>
 </div>
-	<!---->
-<!--	<div class="footer">
-		<div class="container">
-			<div>
-				<div class="col-md-4 ftr-grid">
-					<h3>登陆</h3>
-					学号:<input class="input" /><br> <br> 密码:<input
-						class="input" /><br> <br>
-					<button type="button" class="btn btn-success">登陆</button>
-					<button type="button" class="btn btn-success">修改密码</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 修改页面窗口 -->
- <!-- center>
-		<div style="width: 100%;position:relative;bottom: 100px"
-			class="my-change-psw-table" hidden="hidden">
-			<table class=" ">
-				<tr>
-					<td colspan="2"><button type="button" class="close">
-							<span aria-hidden="true">&times;</span>
-						</button></td>
-				</tr>
-				<tr>
-					<td>原密码</td>
-					<td><input /></td>
-				</tr>
-				<tr>
-					<td>新密码</td>
-					<td><input /></td>
-				</tr>
-				<tr>
-					<td>确认密码</td>
-					<td><input /></td>
-				</tr>
-				<tr>
-					<td colspan="2"><button type="button"
-							class="btn btn-success btn-block">提交</button></td>
-				</tr>
-			</table>
-		</div>
-	</center> -->
-	<!---->
 	<jsp:include page="head/footer.jsp"></jsp:include>
 	<!---->
 </body>

@@ -20,6 +20,7 @@ public class UserController {
 	@Resource
 	UserService userService;
 	
+
 	@ResponseBody
 	@RequestMapping("/register.do")
 	public void addUser(User user) {

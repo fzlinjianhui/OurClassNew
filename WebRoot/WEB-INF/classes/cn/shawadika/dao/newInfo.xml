@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.shawadika.dao.newInfoMapper">
+	<!-- -->
+	<insert id="addNew" parameterType="cn.shawadika.entity.newInfo">
+		insert into newinfo
+		values(
+		#(type),
+		#(title),
+		#(content),
+		#(time),
+		#(ineffect),
+		#(userId),
+		#(author),
+		#(res1),
+		#(res2)
+		);
+	</insert>
+</mapper>
